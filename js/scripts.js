@@ -70,7 +70,6 @@ $(function() {
   $("#pizza-size div label input").click(function () {
     $("#chosen-size").text(this.parentElement.textContent);
     newPizza = new Pizza (this.parentElement.textContent);
-    debugger;
     newPizza.price.push($(this).data('price'));
   })
 
@@ -79,11 +78,16 @@ $(function() {
     if (this.checked) {
       $("<li>").text(this.parentElement.textContent).appendTo("#chosen-toppings").off();
       newPizza.toppings.push(this.parentElement.textContent);
+      newPizza.price.push($(this).data('price'));
     } else {
       //Remove topping from order
+      debugger;
       $("#chosen-toppings li:contains('" + this.parentElement.textContent + "')").remove();
       var removeTopping = newPizza.toppings.indexOf(this.parentElement.textContent);
       newPizza.toppings.splice(removeTopping, 1);
+      // var thisPrice = $(this).data('price');
+      var removePrice = newPizza.price.indexOf($(this).data('price'));
+      newPizza.price.splice(removePrice, 1);
     }
   })
 
