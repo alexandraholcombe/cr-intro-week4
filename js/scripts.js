@@ -47,7 +47,7 @@ $(function() {
   $.each(sizes, function(i, val){
     $("#pizza-size").append("<div class='radio'>" +
                               "<label>" +
-                              "<input type='radio' name='pizza_sizes' data-size='" + sizes[i] + "'> " +
+                              "<input type='radio' name='pizza_sizes' data-size='" + sizes[i] + "'>" +
                               sizes[i].displayName + "</label></div>");
   })
 
@@ -73,10 +73,11 @@ $(function() {
     if (this.checked) {
       $("<li>").text(this.parentElement.textContent).appendTo("#chosen-toppings").off();
       newPizza.toppings.push(this.parentElement.textContent);
-      debugger;
     } else {
       //Remove topping from order
       $("#chosen-toppings li:contains('" + this.parentElement.textContent + "')").remove();
+      var removeTopping = newPizza.toppings.indexOf(this.parentElement.textContent);
+      newPizza.toppings.splice(removeTopping, 1);
     }
   })
 
