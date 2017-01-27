@@ -47,7 +47,7 @@ $(function() {
   $.each(toppings, function(i, val){
     $("#pizza-toppings").append("<div class='checkbox'>" +
                               "<label>" +
-                              "<input type='checkbox' name='pizza_toppings' value='" + toppings[i].value + "'> " +
+                              "<input type='checkbox' name='pizza_toppings' value='" + toppings[i].value + "'>" +
                               toppings[i].displayName + "</label></div>");
   })
 
@@ -59,11 +59,15 @@ $(function() {
   //Select topping and apply to order
   $("#pizza-toppings div label input").click(function() {
     // debugger;
-    if (!this.checked) {
-      console.log("Checked");
-    } else{
-     $("<li>").text(this.parentElement.textContent).appendTo("#chosen-toppings")
-   }
+    if (this.checked) {
+      $("<li>").text(this.parentElement.textContent).appendTo("#chosen-toppings").off();
+    } else {
+      //Remove topping from order
+
+      var findMe = this.parentElement.textContent;
+      $("#chosen-toppings li:contains('" + findMe + "')").remove();
+
+    }
   })
 
 })
