@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="js/jquery-3.1.1.js" charset="utf-8"></script>
-    <script src="js/scripts.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
-    <meta charset="utf-8">
-    <title>Allie's Pizzeria</title>
-  </head>
-  <body>
+<head>
+  <script src="js/jquery-3.1.1.js" charset="utf-8"></script>
+  <script src="js/scripts.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <meta charset="utf-8">
+  <title>Allie's Pizzeria</title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Allie's Pizzeria</h1>
+    </div>
+    <h2>Order a Pizza</h2>
+    <div class="row">
+      <div class="col-md-7" id="create-pizza">
+        <h3>Options</h3>
+        <h4>Choose a size:</h4>
+        <ul id="pizza-size">
 
-  </body>
+        </ul>
+        <h4>Choose your toppings:</h4>
+        <ul id="pizza-toppings">
+
+        </ul>
+      </div>
+      <div class="col-md-5" id="in-progress-pizza">
+        <h2>Your Pizza:</h2>
+        <span id="chosen-size"></span>
+        <h3>Toppings</h3>
+        <ul id="chosen-toppings">
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
