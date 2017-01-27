@@ -15,10 +15,17 @@ var toppings = [];
 
 //User Interface Logic
 $(function() {
+  //Add Size objects to page
   $.each(sizes, function(i, val){
     $("#pizza-size").append("<div class='radio'>" +
                               "<label>" +
-                              "<input type='radio' name='pizza_sizes' value='" + sizes[i] + "'> " +
+                              "<input type='radio' name='pizza_sizes' value='" + sizes[i].value + "'> " +
                               sizes[i].displayName + "</label></div>");
-  });
-});
+  })
+
+  //Select size and apply to order
+  $("#pizza-size div label input").click(function () {
+    $("#chosen-size").text(this.parentElement.textContent);
+  })
+
+})
