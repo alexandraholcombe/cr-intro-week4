@@ -38,25 +38,31 @@ var toppings = [pepperoni, sausage, bacon, canadianBacon, bananaPeppers, blackOl
 function Pizza (size) {
   this.size = size;
   this.toppings = [];
+  this.price = [];
 }
+
+Pizza.prototype.pizzaPrice = function() {
+
+}
+
 var newPizza;
 
 //User Interface Logic
+
 $(function() {
   //Add Size objects to page
   $.each(sizes, function(i, val){
     $("#pizza-size").append("<div class='radio'>" +
                               "<label>" +
-                              "<input type='radio' name='pizza_sizes' data-size='" + sizes[i] + "'>" +
+                              "<input type='radio' name='pizza_sizes' data-price='" + this.price + "'>" +
                               sizes[i].displayName + "</label></div>");
   })
 
   //Add Toppings objects to page
   $.each(toppings, function(i, val){
-    // debugger;
     $("#pizza-toppings").append("<div class='checkbox'>" +
                               "<label>" +
-                              "<input type='checkbox' name='pizza_toppings' data-topping='" + toppings[i] + "'>" +
+                              "<input type='checkbox' name='pizza_toppings' data-price='" + this.price + "'>" +
                               toppings[i].displayName + "</label></div>");
   })
 
@@ -64,12 +70,12 @@ $(function() {
   $("#pizza-size div label input").click(function () {
     $("#chosen-size").text(this.parentElement.textContent);
     newPizza = new Pizza (this.parentElement.textContent);
-    // debugger;
+    debugger;
+    newPizza.price.push($(this).data('price'));
   })
 
   //Select topping and apply to order
   $("#pizza-toppings div label input").click(function() {
-    // debugger;
     if (this.checked) {
       $("<li>").text(this.parentElement.textContent).appendTo("#chosen-toppings").off();
       newPizza.toppings.push(this.parentElement.textContent);
