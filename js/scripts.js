@@ -59,8 +59,11 @@ $(function() {
   //Select topping and apply to order
   $("#pizza-toppings div label input").click(function() {
     // debugger;
+    if (!this.checked) {
+      console.log("Checked");
+    } else{
      $("<li>").text(this.parentElement.textContent).appendTo("#chosen-toppings")
-    // $("#chosen-toppings").append(this.parentElement.textContent);
+   }
   })
 
 })
