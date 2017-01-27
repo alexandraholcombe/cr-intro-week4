@@ -2,9 +2,9 @@
 
 //CREATING PIZZA SIZES
 function Size (value, displayName, price) {
-  this.value = value,
-  this.displayName = displayName,
-  this.price = price
+  this.value = value;
+  this.displayName = displayName;
+  this.price = price;
 }
 
 var smallPizza = new Size ('small', 'Small (10")', 10);
@@ -12,11 +12,12 @@ var mediumPizza = new Size ('medium', 'Medium (12")', 12);
 var largePizza = new Size ('large', 'Large (14")', 14);
 
 var sizes = [smallPizza, mediumPizza, largePizza];
+
 //CREATING TOPPINGS
 function Topping (value, displayName, price) {
-  this.value = value,
-  this.displayName = displayName,
-  this.price = price
+  this.value = value;
+  this.displayName = displayName;
+  this.price = price;
 }
 
 var pepperoni = new Topping ('pepperoni', 'Pepperoni', 1);
@@ -33,13 +34,20 @@ var pineapple = new Topping ('pineapple', 'Pineapple', 1);
 
 var toppings = [pepperoni, sausage, bacon, canadianBacon, bananaPeppers, blackOlives, greenPeppers, mushrooms, onions, spinach, pineapple];
 
+//CREATE NEW Pizza
+function newPizza (size, toppings) {
+  this.size = size;
+  this.toppings = [];
+}
+
 //User Interface Logic
 $(function() {
   //Add Size objects to page
   $.each(sizes, function(i, val){
+    // debugger;
     $("#pizza-size").append("<div class='radio'>" +
                               "<label>" +
-                              "<input type='radio' name='pizza_sizes' value='" + sizes[i].value + "'> " +
+                              "<input type='radio' name='pizza_sizes' value='" + sizes[i] + "'> " +
                               sizes[i].displayName + "</label></div>");
   })
 
@@ -47,8 +55,8 @@ $(function() {
   $.each(toppings, function(i, val){
     $("#pizza-toppings").append("<div class='checkbox'>" +
                               "<label>" +
-                              "<input type='checkbox' name='pizza_toppings' value='" + toppings[i].value + "'>" +
-                              toppings[i].displayName + "</label></div>");
+                              "<input type='checkbox' name='pizza_toppings' value='" + toppings[i] + "'>" +
+                              toppings[i].displayName + "</label></div>").data(this);
   })
 
   //Select size and apply to order
@@ -61,10 +69,11 @@ $(function() {
     // debugger;
     if (this.checked) {
       $("<li>").text(this.parentElement.textContent).appendTo("#chosen-toppings").off();
+      debugger;
+      console.log(this.data);
     } else {
       //Remove topping from order
       $("#chosen-toppings li:contains('" + this.parentElement.textContent + "')").remove();
-
     }
   })
 
