@@ -38,15 +38,21 @@ var toppings = [pepperoni, sausage, bacon, canadianBacon, bananaPeppers, blackOl
 function Pizza (size) {
   this.size = size;
   this.toppings = [];
-  this.price = [];
-}
-
-Pizza.prototype.pizzaPrice = function() {
-
+  this.prices = [];
 }
 
 var newPizza;
 
+//TOTAL PRICE
+var totalPrice;
+
+Pizza.prototype.pizzaPrice = function() {
+  debugger;
+  function getSum(total, num){
+    return total + num;
+  }
+  return this.prices.reduce(getSum, 0);
+}
 //User Interface Logic
 
 $(function() {
@@ -70,7 +76,7 @@ $(function() {
   $("#pizza-size div label input").click(function () {
     $("#chosen-size").text(this.parentElement.textContent);
     newPizza = new Pizza (this.parentElement.textContent);
-    newPizza.price[0] = $(this).data('price');
+    newPizza.prices[0] = $(this).data('price');
   })
 
   //Select topping and apply to order
@@ -78,7 +84,7 @@ $(function() {
     if (this.checked) {
       $("<li>").text(this.parentElement.textContent).appendTo("#chosen-toppings").off();
       newPizza.toppings.push(this.parentElement.textContent);
-      newPizza.price.push($(this).data('price'));
+      newPizza.prices.push($(this).data('price'));
     } else {
       //Remove topping from order
       debugger;
@@ -86,8 +92,8 @@ $(function() {
       var removeTopping = newPizza.toppings.indexOf(this.parentElement.textContent);
       newPizza.toppings.splice(removeTopping, 1);
       // var thisPrice = $(this).data('price');
-      var removePrice = newPizza.price.indexOf($(this).data('price'));
-      newPizza.price.splice(removePrice, 1);
+      var removePrice = newPizza.prices.indexOf($(this).data('price'));
+      newPizza.prices.splice(removePrice, 1);
     }
   })
 
