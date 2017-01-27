@@ -63,9 +63,7 @@ $(function() {
       $("<li>").text(this.parentElement.textContent).appendTo("#chosen-toppings").off();
     } else {
       //Remove topping from order
-
-      var findMe = this.parentElement.textContent;
-      $("#chosen-toppings li:contains('" + findMe + "')").remove();
+      $("#chosen-toppings li:contains('" + this.parentElement.textContent + "')").remove();
 
     }
   })
