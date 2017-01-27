@@ -70,7 +70,7 @@ $(function() {
   $("#pizza-size div label input").click(function () {
     $("#chosen-size").text(this.parentElement.textContent);
     newPizza = new Pizza (this.parentElement.textContent);
-    newPizza.price.push($(this).data('price'));
+    newPizza.price[0] = $(this).data('price');
   })
 
   //Select topping and apply to order
