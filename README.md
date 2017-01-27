@@ -22,13 +22,17 @@ View this project on [GitHub Pages](https://alexandraholcombe.github.io/cr-intro
 * Example Input: Medium
 * Example Output: Your Pizza: Medium
 
-**The default size for a pizza will be Large.**
+<!-- **The default size for a pizza will be Large.**
 * Example Input:
-* Example Output: Your Pizza: Large
+* Example Output: Your Pizza: Large -->
 
 **The user may select as many items from the toppings list as they would like, and the toppings will be appended to the "your pizza: toppings" section.**
 * Example Input: Pepperoni, Mushroom, Green Peppers
 * Example Output: Your Pizza: Your Toppings: Pepperoni, Mushroom, Green Peppers
+
+**When the user selects a topping, the topping in the original list will bold.**
+* Example Input: *topping clicky* Pepperoni
+* Example Output: **Pepperoni**
 
 **When the user clicks "Add to Cart", the Pizza and a summary of the pizza toppings will be moved to a "cart" section.**
 * Example Input: Add to cart

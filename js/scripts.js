@@ -1,17 +1,37 @@
 //Business Logicus
 
 //CREATING PIZZA SIZES
-function Size (value, displayName) {
-  this.value = value;
-  this.displayName = displayName;
+function Size (value, displayName, price) {
+  this.value = value,
+  this.displayName = displayName,
+  this.price = price
 }
 
-var smallPizza = new Size ('small', 'Small (10")');
-var mediumPizza = new Size ('medium', 'Medium (12")');
-var largePizza = new Size ('large', 'Large (14")');
+var smallPizza = new Size ('small', 'Small (10")', 10);
+var mediumPizza = new Size ('medium', 'Medium (12")', 12);
+var largePizza = new Size ('large', 'Large (14")', 14);
 
 var sizes = [smallPizza, mediumPizza, largePizza];
 var toppings = [];
+
+//CREATING TOPPINGS
+function Topping (value, displayName, price) {
+  this.value = value,
+  this.displayName = displayName,
+  this.price = price
+}
+
+var pepperoni = new Topping ('pepperoni', 'Pepperoni', 1)
+var sausage = new Topping ('sausage', 'Sausage', 1)
+var bacon = new Topping ('bacon', 'Bacon', 1)
+var canadianBacon = new Topping ('canadianBacon', 'Canadian Bacon', 1)
+var bananaPeppers = new Topping ('bananaPeppers', 'Banana Peppers', 1)
+var blackOlives = new Topping ('blackOlives', 'Black Olives', 1)
+var greenPeppers = new Topping ('greenPeppers', 'Green Peppers', 1)
+var mushrooms = new Topping ('mushrooms', 'Mushrooms', 1)
+var onions = new Topping ('onions', 'Onions', 1)
+var spinach = new Topping ('spinach', 'Spinach', 1)
+var pineapple = new Topping ('pineapple', 'Pineapple', 1)
 
 //User Interface Logic
 $(function() {
