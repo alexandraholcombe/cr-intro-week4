@@ -30,13 +30,13 @@ View this project on [GitHub Pages](https://alexandraholcombe.github.io/cr-intro
 * Example Input: Pepperoni, Mushroom, Green Peppers
 * Example Output: Your Pizza: Your Toppings: Pepperoni, Mushroom, Green Peppers
 
-**When the user selects a topping, the topping in the original list will bold.**
-* Example Input: *topping clicky* Pepperoni
-* Example Output: **Pepperoni**
-
 **When the user clicks "Add to Cart", the Pizza and a summary of the pizza toppings will be moved to a "cart" section.**
 * Example Input: Add to cart
 * Example Output: Large, Pepperoni, Mushroom, Green Peppers, $17
+
+**When the user selects a topping, the topping in the original list will bold.**
+* Example Input: *topping clicky* Pepperoni
+* Example Output: **Pepperoni**
 
 ## Support and contact details
 

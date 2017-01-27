@@ -44,8 +44,6 @@ function Pizza (size) {
 var newPizza;
 
 //TOTAL PRICE
-var totalPrice;
-
 Pizza.prototype.pizzaPrice = function() {
   debugger;
   function getSum(total, num){
@@ -53,6 +51,7 @@ Pizza.prototype.pizzaPrice = function() {
   }
   return this.prices.reduce(getSum, 0);
 }
+
 //User Interface Logic
 
 $(function() {
@@ -77,6 +76,7 @@ $(function() {
     $("#chosen-size").text(this.parentElement.textContent);
     newPizza = new Pizza (this.parentElement.textContent);
     newPizza.prices[0] = $(this).data('price');
+    $("#add-to-cart").attr("disabled", false);
   })
 
   //Select topping and apply to order
