@@ -1,3 +1,7 @@
 #pizza-toppings {
   display: none;
 }
+
+#empty-cart {
+  font-style: italic;
+}

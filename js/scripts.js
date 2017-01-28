@@ -52,6 +52,8 @@ Pizza.prototype.pizzaPrice = function() {
   return this.prices.reduce(getSum, 0);
 }
 
+var pizzaCount;
+
 //User Interface Logic
 
 $(function() {
@@ -77,6 +79,7 @@ $(function() {
     newPizza = new Pizza (this.parentElement.textContent);
     newPizza.prices[0] = $(this).data('price');
     $("#add-to-cart").attr("disabled", false);
+    $("#pizza-toppings").show();
   })
 
   //Select topping and apply to order
@@ -97,4 +100,20 @@ $(function() {
     }
   })
 
+  //Add to cart
+  $("#add-to-cart").click(function() {
+    pizzaCount += 1;
+    $("#empty-cart").hide();
+    $("#receipt").append("<div class='this-pizza'>"+
+                          "<span class='this-pizza-size'>" + newPizza.size +
+                          "</span>" +
+                          "<ul id='pizza-count-" + pizzaCount + "'>" +
+                          "</ul>"+
+                          "<span class='this-pizza-total'>" +
+                          newPizza.pizzaPrice() + "</span>" +
+                          "</div>");
+    $.each(newPizza.toppings, function(i, val) {
+      $("<li>").text(val).appendTo("ul#pizza-count-"+ pizzaCount);
+    })
+  })
 })
