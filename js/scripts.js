@@ -89,7 +89,6 @@ $(function() {
       newPizza.prices.push($(this).data('price'));
     } else {
       //Remove topping from order
-      debugger;
       $("#chosen-toppings li:contains('" + this.parentElement.textContent + "')").remove();
       var removeTopping = newPizza.toppings.indexOf(this.parentElement.textContent);
       newPizza.toppings.splice(removeTopping, 1);
@@ -108,7 +107,7 @@ $(function() {
                           "</span>" +
                           "<ul id='pizza-count-" + pizzaCount + "'>" +
                           "</ul>"+
-                          "<span class='this-pizza-total'>" +
+                          "<span class='this-pizza-total'> $" +
                           newPizza.pizzaPrice() + "</span>" +
                           "</div>");
     $.each(newPizza.toppings, function(i, val) {
@@ -117,7 +116,6 @@ $(function() {
     $("#chosen-size").empty();
     $("#chosen-toppings").empty();
     $("#pizza-size div label input:radio").each(function() {
-      // debugger;
       $(this).prop('checked', false);
     })
     $("#pizza-toppings div label input:checkbox").each(function (){
