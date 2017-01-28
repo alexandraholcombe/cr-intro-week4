@@ -116,6 +116,13 @@ $(function() {
     })
     $("#chosen-size").empty();
     $("#chosen-toppings").empty();
+    $("#pizza-size div label input:radio").each(function() {
+      // debugger;
+      $(this).prop('checked', false);
+    })
+    $("#pizza-toppings div label input:checkbox").each(function (){
+      $(this).prop('checked', false);
+    })
     newPizza.size = 0;
     newPizza.toppings = []
     newPizza.prices = []
