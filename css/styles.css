@@ -5,3 +5,7 @@
 #empty-cart {
   font-style: italic;
 }
+
+.this-pizza {
+  float: left;
+}

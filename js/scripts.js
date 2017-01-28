@@ -45,14 +45,13 @@ var newPizza;
 
 //TOTAL PRICE
 Pizza.prototype.pizzaPrice = function() {
-  debugger;
   function getSum(total, num){
     return total + num;
   }
   return this.prices.reduce(getSum, 0);
 }
 
-var pizzaCount;
+var pizzaCount = 0;
 
 //User Interface Logic
 
@@ -104,7 +103,7 @@ $(function() {
   $("#add-to-cart").click(function() {
     pizzaCount += 1;
     $("#empty-cart").hide();
-    $("#receipt").append("<div class='this-pizza'>"+
+    $("#receipt").off().append("<div class='this-pizza'>"+
                           "<span class='this-pizza-size'>" + newPizza.size +
                           "</span>" +
                           "<ul id='pizza-count-" + pizzaCount + "'>" +
@@ -113,7 +112,12 @@ $(function() {
                           newPizza.pizzaPrice() + "</span>" +
                           "</div>");
     $.each(newPizza.toppings, function(i, val) {
-      $("<li>").text(val).appendTo("ul#pizza-count-"+ pizzaCount);
+      $("<li>").text(val).appendTo("ul#pizza-count-"+ parseInt(pizzaCount));
     })
+    $("#chosen-size").empty();
+    $("#chosen-toppings").empty();
+    newPizza.size = 0;
+    newPizza.toppings = []
+    newPizza.prices = []
   })
 })
